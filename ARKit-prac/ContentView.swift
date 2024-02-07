@@ -15,22 +15,25 @@ struct ContentView : View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-    
     func makeUIView(context: Context) -> ARView {
         
         let arView = ARView(frame: .zero)
 
-        // Create a cube model
+        //オブジェクトの形状
         let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
+        //オブジェクトの表面の外観
         let material = SimpleMaterial(color: .gray, roughness: 0.15, isMetallic: true)
+        //
         let model = ModelEntity(mesh: mesh, materials: [material])
         model.transform.translation.y = 0.05
 
-        // Create horizontal plane anchor for the content
+        //AnchorEntityはオブジェクトをどこに置くのか指定するためのもの
         let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
+        
+        //anchorの子階層に立方体のモデルを追加
         anchor.children.append(model)
 
-        // Add the horizontal plane anchor to the scene
+        //ARViewのsceneにアンカー追加
         arView.scene.anchors.append(anchor)
 
         return arView
@@ -39,8 +42,4 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
-}
-
-#Preview {
-    ContentView()
 }
