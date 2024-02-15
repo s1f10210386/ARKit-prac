@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @StateObject private var viewModel = ARViewModel()
 
-#Preview {
-    ContentView()
+    var body: some View {
+        VStack {
+            ARViewContainer(viewModel: viewModel)
+                .edgesIgnoringSafeArea(.all)
+            
+            Button("Start AR Session") {
+                viewModel.startARSession()
+            }
+        }
+    }
 }

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ABCF1D52B7E164500437544 /* Scan_17-52-41.arobject in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCF1D42B7E164500437544 /* Scan_17-52-41.arobject */; };
+		2ABCF1D82B7E168C00437544 /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCF1D72B7E168C00437544 /* ARViewModel.swift */; };
+		2ABCF1DA2B7E169F00437544 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCF1D92B7E169F00437544 /* ARView.swift */; };
+		2ABCF1DC2B7E16D500437544 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCF1DB2B7E16D500437544 /* ContentView.swift */; };
 		2AC93E2C2B733BF700EAD985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC93E2B2B733BF700EAD985 /* AppDelegate.swift */; };
-		2AC93E2E2B733BF700EAD985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC93E2D2B733BF700EAD985 /* ContentView.swift */; };
 		2AC93E302B733BF800EAD985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC93E2F2B733BF800EAD985 /* Assets.xcassets */; };
 		2AC93E332B733BF800EAD985 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC93E322B733BF800EAD985 /* Preview Assets.xcassets */; };
 		2AC93E3D2B733BF800EAD985 /* ARKit_pracTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC93E3C2B733BF800EAD985 /* ARKit_pracTests.swift */; };
@@ -34,9 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2ABCF1D42B7E164500437544 /* Scan_17-52-41.arobject */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Scan_17-52-41.arobject"; path = "../../../../Downloads/Scan_17-52-41.arobject"; sourceTree = "<group>"; };
+		2ABCF1D62B7E164700437544 /* Biore.arobject */ = {isa = PBXFileReference; lastKnownFileType = file; path = Biore.arobject; sourceTree = "<group>"; };
+		2ABCF1D72B7E168C00437544 /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		2ABCF1D92B7E169F00437544 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		2ABCF1DB2B7E16D500437544 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2ABCF1DD2B7E18B200437544 /* Scan_17-52-41.arobject */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Scan_17-52-41.arobject"; sourceTree = "<group>"; };
 		2AC93E282B733BF700EAD985 /* ARKit-prac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-prac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC93E2B2B733BF700EAD985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AC93E2D2B733BF700EAD985 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2AC93E2F2B733BF800EAD985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AC93E322B733BF800EAD985 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AC93E382B733BF800EAD985 /* ARKit-pracTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARKit-pracTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,8 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				2AC93E2B2B733BF700EAD985 /* AppDelegate.swift */,
-				2AC93E2D2B733BF700EAD985 /* ContentView.swift */,
+				2ABCF1D62B7E164700437544 /* Biore.arobject */,
+				2ABCF1D72B7E168C00437544 /* ARViewModel.swift */,
+				2ABCF1D92B7E169F00437544 /* ARView.swift */,
+				2ABCF1DB2B7E16D500437544 /* ContentView.swift */,
 				2AC93E2F2B733BF800EAD985 /* Assets.xcassets */,
+				2ABCF1DD2B7E18B200437544 /* Scan_17-52-41.arobject */,
 				2AC93E312B733BF800EAD985 /* Preview Content */,
 			);
 			path = "ARKit-prac";
@@ -105,6 +117,7 @@
 		2AC93E312B733BF800EAD985 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				2ABCF1D42B7E164500437544 /* Scan_17-52-41.arobject */,
 				2AC93E322B733BF800EAD985 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -232,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AC93E332B733BF800EAD985 /* Preview Assets.xcassets in Resources */,
+				2ABCF1D52B7E164500437544 /* Scan_17-52-41.arobject in Resources */,
 				2AC93E302B733BF800EAD985 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC93E2E2B733BF700EAD985 /* ContentView.swift in Sources */,
 				2AC93E2C2B733BF700EAD985 /* AppDelegate.swift in Sources */,
+				2ABCF1D82B7E168C00437544 /* ARViewModel.swift in Sources */,
+				2ABCF1DC2B7E16D500437544 /* ContentView.swift in Sources */,
+				2ABCF1DA2B7E169F00437544 /* ARView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +442,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "投稿した場所を共有するために用います";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -457,6 +476,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "投稿した場所を共有するために用います";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;

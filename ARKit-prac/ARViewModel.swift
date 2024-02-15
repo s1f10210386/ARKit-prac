@@ -6,13 +6,29 @@
 //
 
 import SwiftUI
+import ARKit
+import Combine
 
-struct ARViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class ARViewModel: ObservableObject {
+    var session: ARSession
+    var referenceObjects: Set<ARReferenceObject> = []
+    
+    init(session: ARSession = ARSession()) {
+        self.session = session
+        loadReferenceObjects()
     }
-}
-
-#Preview {
-    ARViewModel()
+    
+    private func loadReferenceObjects() {
+        // `.arobject`ファイルからARReferenceObjectを読み込む処理
+        guard let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "Biore", bundle: nil) else {
+            fatalError("Missing expected asset catalog resources.")
+        }
+        self.referenceObjects = referenceObjects
+    }
+    
+    func startARSession() {
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.detectionObjects = referenceObjects
+        session.run(configuration)
+    }
 }

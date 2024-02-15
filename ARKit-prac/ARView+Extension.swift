@@ -5,14 +5,22 @@
 //  Created by 金澤帆高 on 2024/02/12.
 //
 
-import SwiftUI
+import Foundation
+import RealityKit
+import ARKit
 
-struct ARView_Extension: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension ARView {
+    
+    //ユーザーがAR体験をスムーズに行えるようにチュートリアルみたいな？ものを表示する
+    func setupCoachingOverlay(_ delegate: Coordinator) {
+        let coachingOverlay = ARCoachingOverlayView()
+        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        coachingOverlay.session = self.session
+        coachingOverlay.goal = .geoTracking
+        coachingOverlay.delegate = delegate
+
+        self.addSubview(coachingOverlay)
+
     }
-}
-
-#Preview {
-    ARView_Extension()
+    
 }
