@@ -1,66 +1,9 @@
 //
-//  ARView.swift
-//  ARKit-prac
+//import SwiftUI
+//import RealityKit
+//import ARKit
 //
-//  Created by 金澤帆高 on 2024/02/15.
 //
-import SwiftUI
-import RealityKit
-import ARKit
-
-struct ARContentView : View {
-    var body: some View {
-        ARViewContainer().edgesIgnoringSafeArea(.all)
-    }
-}
-
-struct ARViewContainer: UIViewRepresentable {
-    
-    func makeUIView(context: Context) -> ARView {
-        let arView = ARView(frame: .zero)
-        
-        // ARセッションの設定
-        let configuration = ARWorldTrackingConfiguration()
-        guard let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "Biore", bundle: nil) else {
-            fatalError("Missing expected asset catalog resources.")
-        }
-        configuration.detectionObjects = referenceObjects
-        arView.session.run(configuration)
-        
-        // セッションデリゲートの設定
-        arView.session.delegate = context.coordinator
-        
-        return arView
-    }
-    
-    func updateUIView(_ uiView: ARView, context: Context) {}
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-}
-
-class Coordinator: NSObject, ARSessionDelegate {
-    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        guard let arView = session.delegate as? ARView else { return }
-
-        for anchor in anchors {
-            if let objectAnchor = anchor as? ARObjectAnchor {
-                // 認識された物体の上に球体を追加
-                let sphere = MeshResource.generateSphere(radius: 0.05)
-                let material = SimpleMaterial(color: .red, isMetallic: true)
-                let sphereEntity = ModelEntity(mesh: sphere, materials: [material])
-                
-                // 認識された物体の位置に球体を配置
-                let anchorEntity = AnchorEntity(anchor: objectAnchor)
-                anchorEntity.addChild(sphereEntity)
-                arView.scene.addAnchor(anchorEntity)
-            }
-        }
-    }
-}
-
-
 //struct ARViewContainer: UIViewRepresentable {
 //    @ObservedObject var viewModel: ARViewModel
 //    
@@ -104,3 +47,46 @@ class Coordinator: NSObject, ARSessionDelegate {
 //        }
 //    }
 //}
+//
+
+import SwiftUI
+import RealityKit
+import ARKit
+
+struct ARViewContainer: UIViewRepresentable {
+    @ObservedObject var viewModel: ARViewModel
+    
+    func makeUIView(context: Context) -> ARView {
+        viewModel.arView.session.delegate = context.coordinator
+        return viewModel.arView
+    }
+    
+    func updateUIView(_ uiView: ARView, context: Context) {}
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, ARSessionDelegate {
+        var parent: ARViewContainer
+        
+        init(_ parent: ARViewContainer) {
+            self.parent = parent
+        }
+        
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+            for anchor in anchors {
+                guard let objectAnchor = anchor as? ARObjectAnchor else { continue }
+                
+                // RealityKitで球体を追加
+                let sphere = ModelEntity(mesh: .generateSphere(radius: 0.05), materials: [SimpleMaterial(color: .red, isMetallic: true)])
+                let anchorEntity = AnchorEntity(anchor: objectAnchor)
+                anchorEntity.addChild(sphere)
+                
+                DispatchQueue.main.async {
+                    self.parent.viewModel.arView.scene.addAnchor(anchorEntity)
+                }
+            }
+        }
+    }
+}
